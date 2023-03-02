@@ -1,7 +1,10 @@
+import { Container } from '@mui/material'
 
 function App (): JSX.Element {
   return (
-    <h1>Hello Andy</h1>
+    <Container>
+      <h1>Hello Andy</h1>
+    </Container>
   )
 }
 
