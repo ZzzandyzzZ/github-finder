@@ -1,12 +1,19 @@
 import { Container } from '@mui/material'
+import { Searcher } from './components/searcher/Searcher'
 
 function App (): JSX.Element {
   return (
     <Container sx={{
-      background: 'withesmoke',
-      witdh: '80vw'
+      backgroundColor: 'whitesmoke',
+      width: '80vw',
+      height: '80vh',
+      borderRadius: '16px',
+      marginTop: '40px',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
     }}>
-      <h1>Hello Andy</h1>
+      <Searcher />
     </Container>
   )
 }
