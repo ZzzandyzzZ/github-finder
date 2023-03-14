@@ -1,0 +1,16 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.animate__animated.animate__pulse {
+  --animate-duration: 0.5s;
+  --animate-delay: 0s;
+}
+
+/* This changes all the animations globally */
+:root {
+  --animate-duration: 800ms;
+}
