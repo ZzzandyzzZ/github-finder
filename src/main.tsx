@@ -1,16 +1,17 @@
-import { ThemeProvider } from '@emotion/react'
 import { CssBaseline } from '@mui/material'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux'
 import App from './App'
 import './index.css'
-import { blueTheme } from './theme/blueTheme'
+import { store } from './store/store'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={blueTheme}>
-  <CssBaseline />
-    <App />
-    </ThemeProvider>
+    <Provider store={store}>
+      {/* <ThemeProvider theme={blueTheme}> */}
+      <CssBaseline />
+      <App />
+    </Provider>
   </React.StrictMode>
 )
