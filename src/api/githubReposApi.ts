@@ -8,12 +8,15 @@ const mapFromApiToData = (apiResponse: GithubRepoApiResponse[]): UserRepoData[] 
   return apiResponse.map(
     dataFromApi => {
       const {
-        name,
-        created_at: createdDate
+        created_at: createdDate,
+        id,
+        name
       } = dataFromApi
+      console.log({ dataFromApi })
       return {
-        name,
-        createdDate
+        createdDate,
+        id,
+        name
       }
     }
   )

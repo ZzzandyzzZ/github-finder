@@ -22,7 +22,7 @@ const mapFromApiToData = (apiResponse: GithubUserApiResponse): UserData => {
     avatarUrl,
     blogUrl,
     company,
-    createdDate: new Date(createdDate),
+    createdDate: new Date(createdDate).getTime(),
     followers,
     following,
     location,

@@ -2,7 +2,7 @@ interface UserData {
   avatarUrl?: string
   blogUrl?: string
   company?: string
-  createdDate?: Date
+  createdDate: number
   followers?: number
   following?: number
   location?: string
@@ -13,6 +13,7 @@ interface UserData {
 }
 
 interface UserRepoData {
+  createdDate?: number
+  id: number
   name?: string
-  createdDate?: Date
 }

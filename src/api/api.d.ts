@@ -14,6 +14,7 @@ interface GithubUserApiResponse {
 }
 
 interface GithubRepoApiResponse {
-  created_at: Date
+  created_at: number
+  id: number
   name: string
 }

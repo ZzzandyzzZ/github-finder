@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: UserSliceInitialState = {
-  user: {},
+  user: { createdDate: 0 },
   isUserLoading: true,
   userRepos: [],
   isReposLoading: true,

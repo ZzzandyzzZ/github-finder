@@ -1,7 +1,7 @@
 interface UserSliceInitialState {
   user: UserData
   isUserLoading: boolean
-  userRepos: any
+  userRepos: UserRepoData[]
   isReposLoading: boolean
   errorMsg: string
 }
