@@ -13,10 +13,10 @@ function App (): JSX.Element {
       <Paper elevation={5} sx={{ borderRadius: '0 0 20px 20px' }}>
         <main>
           <Grid container>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={4}>
               <UserProfile />
             </Grid>
-            <Grid item xs={8} display='flex' alignItems='stretch'>
+            <Grid item xs={12} sm={8} display='flex' alignItems='stretch'>
               <UserResume />
             </Grid>
           </Grid>
