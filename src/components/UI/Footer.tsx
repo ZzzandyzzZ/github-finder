@@ -1,4 +1,4 @@
-import { Box, Container, Divider, Link, Paper, Typography } from '@mui/material'
+import { Box, Link, Typography } from '@mui/material'
 
 export const Footer = (): JSX.Element => {
   return (
