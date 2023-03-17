@@ -4,6 +4,8 @@ const getGithubUserResponse = async (username: string): Promise<GithubUserApiRes
   return await githubApi.get(`/users/${username}`).then(res => res.data)
 }
 
+const notAvailable = 'Not available'
+
 const mapFromApiToData = (apiResponse: GithubUserApiResponse): UserData => {
   const {
     avatar_url: avatarUrl,
@@ -20,15 +22,15 @@ const mapFromApiToData = (apiResponse: GithubUserApiResponse): UserData => {
   } = apiResponse
   return {
     avatarUrl,
-    blogUrl,
-    company,
+    blogUrl: blogUrl === '' ? notAvailable : blogUrl,
+    company: company === null ? notAvailable : company,
     createdDate: new Date(createdDate).getTime(),
     followers,
     following,
-    location,
+    location: location === null ? notAvailable : location,
     name,
     NoRepos,
-    twitterUsername,
+    twitterUsername: twitterUsername === null ? notAvailable : twitterUsername,
     username
   }
 }

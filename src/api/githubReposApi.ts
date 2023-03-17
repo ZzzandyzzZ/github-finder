@@ -12,7 +12,6 @@ const mapFromApiToData = (apiResponse: GithubRepoApiResponse[]): UserRepoData[] 
         id,
         name
       } = dataFromApi
-      console.log({ dataFromApi })
       return {
         createdDate,
         id,
