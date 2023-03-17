@@ -12,3 +12,7 @@ interface MediaCardProps {
   Icon: JSX.Element
   content?: string
 }
+
+interface RepoListItemsProps {
+  userRepos: UserRepoData[]
+}
