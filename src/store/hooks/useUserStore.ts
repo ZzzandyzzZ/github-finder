@@ -1,7 +1,7 @@
 import { getGithubReposData } from '../../api/githubReposApi'
 import { getGithubUserData } from '../../api/githubUserApi'
 import { useAppDispatch, useAppSelector } from '../../hooks/useStore'
-import { onUserLoad, onUserLoading, onUserReposLoad, onUserReposLoading } from '../slices/userSlice'
+import { onUserLoad, onUserLoading, onUserReposLoad, onUserReposLoading, onLoadingError, onClearError } from '../slices/userSlice'
 
 export const useUserStore = (): UserStore => {
   const {
@@ -9,18 +9,29 @@ export const useUserStore = (): UserStore => {
     isUserLoading,
     userRepos,
     isReposLoading
+
   } = useAppSelector(state => state.user)
   const disptach = useAppDispatch()
+  const clearErrorMsg = (): void => {
+    disptach(onClearError())
+  }
   const startLoadingUser = async (username: string): Promise<void> => {
     disptach(onUserLoading())
-    const userData = await getGithubUserData(username)
-    disptach(onUserLoad(userData))
+    try {
+      const userData = await getGithubUserData(username)
+      disptach(onUserLoad(userData))
+    } catch (error) {
+      disptach(onLoadingError('User does not exists'))
+    }
   }
   const startLoadingRepos = async (username: string): Promise<void> => {
     disptach(onUserReposLoading())
-    const userReposData = await getGithubReposData(username)
-    console.log({ userReposData })
-    disptach(onUserReposLoad(userReposData))
+    try {
+      const userReposData = await getGithubReposData(username)
+      disptach(onUserReposLoad(userReposData))
+    } catch (error) {
+      disptach(onLoadingError('User does not exists'))
+    }
   }
   return {
     // Props
@@ -30,6 +41,7 @@ export const useUserStore = (): UserStore => {
     isReposLoading,
     // Methods
     startLoadingUser,
-    startLoadingRepos
+    startLoadingRepos,
+    clearErrorMsg
   }
 }

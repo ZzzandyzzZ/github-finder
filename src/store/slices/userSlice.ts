@@ -26,10 +26,14 @@ export const userSlice = createSlice({
       state.isReposLoading = false
     },
     onLoadingError: (state, { payload }) => {
-      state = initialState
       state.errorMsg = payload
+      state.isUserLoading = true
+      state.isReposLoading = true
+    },
+    onClearError: (state) => {
+      state.errorMsg = initialState.errorMsg
     }
   }
 })
 
-export const { onUserLoad, onUserLoading, onUserReposLoading, onUserReposLoad, onLoadingError } = userSlice.actions
+export const { onUserLoad, onUserLoading, onUserReposLoading, onUserReposLoad, onLoadingError, onClearError } = userSlice.actions

@@ -5,4 +5,5 @@ interface UserStore {
   isReposLoading: boolean
   startLoadingUser: (username: string) => Promise<void>
   startLoadingRepos: (username: string) => Promise<void>
+  clearErrorMsg: () => void
 }
